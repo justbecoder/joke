@@ -1,0 +1,13 @@
+{
+  "name": "joke_service",
+  "version": "1.0.0",
+  "description": "Please describe the basic information.",
+  "main": "index.ets",
+  "author": "",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "joke_axios": "file:../joke_axios",
+    "@ohos/axios": "^2.1.1"
+  },
+  "devDependencies": {}
+}

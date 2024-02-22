@@ -1,0 +1,49 @@
+{
+  "app": {
+    "signingConfigs": [
+      {
+        "name": "default",
+        "type": "HarmonyOS",
+        "material": {
+          "certpath": "/Users/huzhimin/.ohos/config/auto_debug_joke_com.example.joke_260086000308019750.cer",
+          "storePassword": "0000001BA29FEC6812CA52AC5CD5D02F765A60ADFE0856CADB60DE43F0688DEECC82DF27CAB1F497B9AB20",
+          "keyAlias": "debugKey",
+          "keyPassword": "0000001BC5DC42D16DB1E8B58F9ADA0A12794B9DF208BA894996D982D6A0B7389491521671F0DEC3F1400A",
+          "profile": "/Users/huzhimin/.ohos/config/auto_debug_joke_com.example.joke_260086000308019750.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "/Users/huzhimin/.ohos/config/auto_debug_joke_com.example.joke_260086000308019750.p12"
+        }
+      }
+    ],
+    "compileSdkVersion": 9,
+    "compatibleSdkVersion": 9,
+    "products": [
+      {
+        "name": "default",
+        "signingConfig": "default",
+      }
+    ]
+  },
+  "modules": [
+    {
+      "name": "entry",
+      "srcPath": "./entry",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "joke_axios",
+      "srcPath": "./joke_axios"
+    },
+    {
+      "name": "joke_service",
+      "srcPath": "./joke_service"
+    }
+  ]
+}
