@@ -1,6 +1,7 @@
 import axios from '@ohos/axios'
 import promptAction from '@ohos.promptAction'
 import { Token } from './TokenConfig'
+import Url from '@ohos.url';
 
 interface HttpError {
   code: number,
@@ -24,20 +25,28 @@ const instance = axios.create({
   timeout: 20000
 })
 
+function formatToken (url: string): string {
+  let newUrl = url;
+  // 处理?
+  const index = newUrl.indexOf('?')
+  if (index === -1) {
+    newUrl = newUrl + `?token=${Token}`
+  } else {
+    // 处理参数
+    let path = newUrl.slice(0, index)
+    // URLParams只能解析query字符串，不能携带path
+    let params = new Url.URLParams(newUrl.slice(index + 1))
+    // 追加token
+    params.append('token', Token)
+    // 拼接最终url地址
+    newUrl = `${path}${params.toString()}`
+  }
+  return newUrl
+}
+
+
 instance.interceptors.request.use((config) => {
-  // 对请求token处理
-
-  // const urlObj = Url.URL.parseURL(config.url)
-  //
-  // const params = new Url.URLParams(urlObj.search)
-  // params.append('token', 'c9rPz6mELIYYHnUq')
-  //
-  //
-  // config.url = `${urlObj.pathname}?${params.toString()}`
-
-
-  config.url = config.url + '?token='
-
+  config.url = formatToken(config.url)
 
   return config
 })

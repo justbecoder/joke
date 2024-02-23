@@ -1,0 +1,10 @@
+{
+  "module": {
+    "name": "joke_utils",
+    "type": "har",
+    "deviceTypes": [
+      "default",
+      "tablet"
+    ]
+  }
+}
